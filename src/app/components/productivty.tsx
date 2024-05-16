@@ -82,7 +82,7 @@ const ProductivityChart: React.FC = () => {
       <div className="bg-white p-2 rounded-lg shadow-md">
         <div className="flex justify-between ">
           <h2 className="text-lg font-semibold">Productivity</h2>
-          <button className="px-2 py-2 bg-zinc-200 rounded-lg shadow hover:bg-zinc-300 transition-colors">
+          <button className="px-2 py-2 bg-zinc-100 rounded-lg shadow hover:bg-zinc-300 transition-colors">
             {currentDate} ▼
           </button>
         </div>

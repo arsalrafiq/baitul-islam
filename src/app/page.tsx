@@ -33,7 +33,7 @@ const Home = () => {
       <Navbar />
 
       <Main_Task />
-      <section className="flex flex-col md:flex-row rounded-full h-[40vh]">
+      <section className="flex flex-col md:flex-row rounded-full h-[vh]">
         <Productivty />
 
         <ProjectsInProgress />
