@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import { useState, useEffect } from "react";
 
 interface NavbarProps {}
@@ -22,10 +21,10 @@ const Navbar: React.FC<NavbarProps> = () => {
 
   return (
     <nav
-      className="fixed top-0 xl:left-60 right-4 h-16 bg-white shadow-md z-10 rounded-lg"
+      className="fixed top-0 xl:left-60 right-4 h-12 bg-white shadow-md z-10 rounded-lg"
       role="navigation"
     >
-      <div className="container mx-auto p-4 flex justify-between items-center">
+      <div className="container mx-auto p-1 flex justify-between items-center">
         <div className="flex items-center">
           <div className="relative">
             <input
@@ -49,9 +48,10 @@ const Navbar: React.FC<NavbarProps> = () => {
             </svg>
           </div>
         </div>
-        <div className="hidden md:block text-lg font-medium">{currentDate}</div>
-        <div className="hidden md:flex items-center">
-          <button className="bg-slate-800 flex space-x-2 rounded-full py-2 px-4 text-white hover:bg-slate-900">
+        <button className="px-4 py-2  rounded-lg  hover:bg-zinc-100 transition-colors">{currentDate}▼</button>
+        <div className="hidden md:block text-lg font-medium"></div>
+        <div className="px-2 hidden md:flex items-center bg-gray-200 rounded-full">
+          <button className="bg-slate-800 flex space-x-2bg-gray-200 rounded-full py-2 px-4 text-white hover:bg-slate-900">
             <div>Cart </div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -69,6 +69,7 @@ const Navbar: React.FC<NavbarProps> = () => {
             </svg>
           </button>
           <button onClick={toggleMenu} className="flex items-center">
+            
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -93,6 +94,7 @@ const Navbar: React.FC<NavbarProps> = () => {
               )}
             </svg>
           </button>
+          <p>List</p>
         </div>
       </div>
     </nav>

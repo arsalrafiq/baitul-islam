@@ -1,152 +1,118 @@
-// ProjectInProgress.tsx
-import Image from "next/image";
-import { useState } from "react";
+"use client";
+import React, { useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 
-interface Customer {
-  name: string;
-  image: string;
-}
-
 interface Project {
-  name: string;
-  feedback: string;
-  blog: string;
-  systemDesign: string;
-  customers: Customer[];
-  totalCustomers: number;
-  avatar:string;
-  description:string
+  id: number;
+  title: string;
+  date: string;
+  labels: string[];
+  members: string[];
+  comments: number;
+  files: number;
 }
 
 const projects: Project[] = [
   {
-    name: "Project 1",
-    feedback: "/feedback",
-    blog: "/blog",
-    systemDesign: "/system-design",
-    customers: [
-      // { name: 'John Doe', image: '/hero.jpeg' },
-      // { name: 'Jane Doe', image: '/hero.jpeg' },
-      // { name: 'Bob Smith', image: '/hero.jpeg' },
+    id: 1,
+    title: "Improve cards readability",
+    date: "21.03.22",
+    labels: ["Feedback", "Bug", "Design System"],
+    members: [
+      "/hero3.png",
+      "/hero2.jpg",
+      "/hero.jpeg",
     ],
-    totalCustomers: 123,
-    avatar: '/hero.jpeg',
-    description:`ABC Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed velit
-    velit, aliquet eget nisl id, volutpat tempor nisl.`
+    comments: 12,
+    files: 0,
   },
   {
-    name: "Project 2",
-    feedback: "/feedback",
-    blog: "/blog",
-    systemDesign: "/system-design",
-    customers: [
-      // { name: 'Alice Johnson', image: '/hero.jpeg' },
-      // { name: 'Charlie Brown', image: '/hero.jpeg' },
-      // { name: 'David Lee', image: '/hero.jpeg' },
+    id: 2,
+    title: "Refactor user authentication",
+    date: "25.03.22",
+    labels: ["Feature", "Security"],
+    members: ["/path/to/avatar4.png", "/path/to/avatar5.png"],
+    comments: 8,
+    files: 2,
+  },
+  {
+    id: 3,
+    title: "Redesign dashboard",
+    date: "28.03.22",
+    labels: ["UI", "UX"],
+    members: [
+      "/hero3.png",
+      "/hero2.jpg",
+      "/hero.jpeg",
+      "/path/to/avatar9.png",
     ],
-    totalCustomers: 456,
-     
-      avatar: '/hero3.png',
-      description:`XYZ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed velit
-      velit, aliquet eget nisl id, volutpat tempor nisl.`
-
+    comments: 15,
+    files: 3,
   },
 ];
 
-const ProjectInProgress = () => {
+const ProjectsInProgress: React.FC = () => {
   const [currentProject, setCurrentProject] = useState(0);
 
-  const handlePrevProject = () => {
-    setCurrentProject((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
-  };
-
   const handleNextProject = () => {
-    setCurrentProject((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+    setCurrentProject((prev) => (prev + 1) % projects.length);
   };
 
-  const currentProjectData = projects[currentProject];
+  const project = projects[currentProject];
 
   return (
-    <div className="bg-slate-800">
-      <div className="p-4 rounded-lg">
-        <div className="flex justify-between items-center mb-2">
-          <h2 className="text-lg font-bold text-white">Project in Progress</h2>
-          <div className="flex space-x-2">
-            <button className="bg-blue-500 text-white px-4 py-2 rounded">
-              Feedback
-            </button>
-            <button className="bg-green-500 text-white px-4 py-2 rounded">
-              Blog
-            </button>
-            <button className="bg-yellow-500 text-white px-4 py-2 rounded">
-              System Design
-            </button>
-          </div>
+    <div className="w-[90vh] p-2">
+      <div className="relative bg-gray-800 p-4 rounded-lg shadow-lg text-white">
+        <h1 className="text-2xl font-semibold mb-4">Projects in progress:</h1>
+        <div className="absolute inset-y-0 right-0 flex items-center pr-4">
+          <button
+            className="bg-gray-200 px-2 py-2 rounded-full"
+            onClick={handleNextProject}
+          >
+            <ChevronRightIcon className="h-4 w-4 text-gray-800" />
+          </button>
         </div>
-        <div className="flex space-x-2">
-          <div className="flex-shrink-0">
-            <div className="flex flex-col space-y-4">
-              {currentProjectData.customers.map((customer) => (
-                <div
-                  key={customer.name}
-                  className="flex items-center space-x-2"
+        <div className="flex space-x-4">
+          <div className="flex-shrink-0 w-96 bg-white text-black p-4 rounded-lg h-64">
+            <div className="flex space-x-2 mb-2">
+              {project.labels.map((label, index) => (
+                <span
+                  key={index}
+                  className="bg-gray-200 text-gray-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded"
                 >
-                  <Image
-                    src={customer.image}
-                    width={40}
-                    height={40}
-                    alt={customer.name}
-                  />
-                  <p className="text-white">{customer.name}</p>
-                </div>
+                  {label}
+                </span>
               ))}
             </div>
-          </div>
-          <div className="flex-1">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-xl font-bold text-white">
-                {currentProjectData.name}
-              </h3>
-              <div className="flex space-x-4">
-                <button
-                  className="bg-gray-200 px-4 py-2 rounded-full"
-                  onClick={handlePrevProject}
-                >
-                  <ChevronLeftIcon className="h-4 w-4 text-gray-800" />
-                </button>
-                <button
-                  className="bg-gray-200 px-4 py-2 rounded-full"
-                  onClick={handleNextProject}
-                >
-                  <ChevronRightIcon className="h-4 w-4 text-gray-800" />
-                </button>
-              </div>
+            <h2 className="text-xl font-semibold">{project.title}</h2>
+            <p className="text-gray-500">{project.date}</p>
+            <div className="flex items-center mt-2">
+              {project.members.map((member, index) => (
+                <img
+                  key={index}
+                  className="h-6 w-6 rounded-full border-2 border-white -ml-1"
+                  src={member}
+                  alt="Member avatar"
+                />
+              ))}
             </div>
-            <div className="flex justify-between items-center mb-4">
-              <div className="flex items-center space-x-2 rounded-full">
-                <Image
-                  src={currentProjectData.avatar}
-                  width={20}
-                  height={20}
-                  alt="project"
-                />
-                <p className="text-white">
-                  {currentProjectData.totalCustomers}
-                </p>
-              </div>
-            </div> <div className="flex ">
-            <p className="text-white">
-             {currentProjectData.description}
-            </p>
-           
-                <Image
-                    src={currentProjectData.avatar}
-                  width={150}
-                  height={150}
-                  alt="Customer icon"
-                />
-                </div>
+            <div className="flex items-center mt-4 text-sm text-gray-600">
+              <span className="mr-4">
+                <i className="material-icons text-base align-middle mr-1">
+                  comment
+                </i>
+                {project.comments} comments
+              </span>
+              <span>
+                <i className="material-icons text-base align-middle mr-1">
+                  insert_drive_file
+                </i>
+                {project.files} files
+              </span>
+            </div>
+          </div>
+          <div className="flex-grow flex items-center justify-center">
+            {/* Placeholder for other project cards */}
           </div>
         </div>
       </div>
@@ -154,4 +120,4 @@ const ProjectInProgress = () => {
   );
 };
 
-export default ProjectInProgress;
+export default ProjectsInProgress;

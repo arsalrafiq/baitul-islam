@@ -10,7 +10,7 @@ const MenuBar = () => {
   };
 
   return (
-    <nav className="bg-white fixed w-56 h-full top-0 left-0 z-10 flex flex-col justify-between shadow-md rounded-lg">
+    <nav className="bg-gray-100  h-[100vh] shadow-xlfixed w-56  top-0 left-0 z-10 flex flex-col justify-between shadow-md rounded-lg">
       <div className="p-4">
         <button onClick={toggleMenu} className="flex items-center">
           <svg
@@ -36,9 +36,11 @@ const MenuBar = () => {
               />
             )}
           </svg>
-          <span className="text-xl font-bold ml-2">Q-Datasoft</span>
+          <span className="text-xl font-bold ml-2 ">Q-Datasoft</span>
         </button>
+       
          <ul className='mt-8'>
+         <div className='border-y'></div>
           <li className="mb-2">
             <a href="#" className="flex items-center p-2 rounded-full hover:bg-slate-800 hover:text-gray-100">
               <svg
@@ -65,7 +67,7 @@ const MenuBar = () => {
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                className="h-6 w-6 text-gray-500 mr-2"
+                className="h-6 w-6 text-gray-500 mr-2 hover:text-white"
               >
                 <path
                   strokeLinecap="round"
@@ -115,7 +117,7 @@ const MenuBar = () => {
               Services
             </a>
           </li>
-          <li className="mb-2">
+          <li className="mb-2 flex justify-between items-center">
             <a href="#" className="flex items-center p-2 rounded-full hover:bg-slate-800 hover:text-gray-100">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -133,6 +135,7 @@ const MenuBar = () => {
               </svg>
               Notifications
             </a>
+            <button className='px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-200'>2</button>
           </li>
           <li className="mb-2">
             <a href="#" className="flex items-center p-2 rounded-full hover:bg-slate-800 hover:text-gray-100">
@@ -159,7 +162,7 @@ const MenuBar = () => {
       <div className="p-4"> {/* Updated with flex-col */}
   <div className="flex items-center"> {/* Retained flex and items-center */}
     <div className="w-16 h-16 rounded-full overflow-hidden"> {/* Retained width, height, and rounding */}
-      <Image src="/hero.jpeg" alt="Avatar" /> {/* Retained image */}
+      <Image src="/hero3.png" width={80} height={80} alt="Avatar" /> {/* Retained image */}
     </div>
     <div className="ml-2 flex flex-col"> {/* Added flex and flex-col */}
       <span className="text-sm font-medium">Muhammad Imran</span> {/* Retained name */}
