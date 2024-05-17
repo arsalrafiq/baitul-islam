@@ -1,4 +1,5 @@
 import React from "react";
+import { MdOutlineWatchLater } from "react-icons/md";
 
 interface Task {
   name: string;
@@ -57,9 +58,9 @@ const LastTasks: React.FC = () => {
   ).length;
 
   return (
-    <div className="max-w-5xl mx-auto mt-12">
+    <div className="mt-12 p-2">
       <h1 className=" text-2xl font-semibold">Last tasks</h1>
-      <div className="flex justify-between mb-2 pl-2">
+      <div className="flex justify-between pl-2">
         <p>Total Tasks ({totalTasks})</p>
         <div className="">
           <span className="mr-8">Done: {doneTasks}</span>
@@ -73,43 +74,43 @@ const LastTasks: React.FC = () => {
             <tr>
               <th
                 scope="col"
-                className="px-6 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                className="px-8 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
               >
                 <input type="checkbox" />
               </th>
               <th
                 scope="col"
-                className="px-6 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                className="px-8 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
               >
                 Name
               </th>
               <th
                 scope="col"
-                className="px-6 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                className="px-8 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
               >
                 Admin
               </th>
               <th
                 scope="col"
-                className="px-6 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                className="px-8 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
               >
                 Members
               </th>
               <th
                 scope="col"
-                className="px-6 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                className="px-8 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
               >
                 Status
               </th>
               <th
                 scope="col"
-                className="px-6 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                className="px-8 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
               >
                 Run time
               </th>
               <th
                 scope="col"
-                className="px-6 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                className="px-8 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
               >
                 Finish date
               </th>
@@ -118,11 +119,11 @@ const LastTasks: React.FC = () => {
           <tbody className="bg-white">
             {tasks.map((task, index) => (
               <tr key={index}>
-                <td className="px-6 py-2 whitespace-nowrap">
+                <td className="px-8 py-2 whitespace-nowrap">
                   <input type="checkbox" />
                 </td>
-                <td className="px-6 py-2 whitespace-nowrap">{task.name}</td>
-                <td className="px-6 py-2 whitespace-nowrap flex items-center">
+                <td className="px-8 py-2 whitespace-nowrap">{task.name}</td>
+                <td className="px-8 py-2 whitespace-nowrap flex items-center">
                   <img
                     className="h-6 w-6 rounded-full mr-2"
                     src={task.adminAvatar}
@@ -131,7 +132,8 @@ const LastTasks: React.FC = () => {
                   {task.admin}
                 </td>
                 <td className="px-6 py-2 whitespace-nowrap">{task.members}</td>
-                <td className="px-6 py-2 whitespace-nowrap">
+                <td className="px-6 py-2 whitespace-nowrap flex">
+                <MdOutlineWatchLater />
                   <span
                     className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
                       task.status === "done"

@@ -21,7 +21,7 @@ const Navbar: React.FC<NavbarProps> = () => {
 
   return (
     <nav
-      className="fixed top-0 xl:left-60 right-4 h-12 bg-white shadow-md z-10 rounded-lg"
+      className="fixed top-0 xl:left-60 lg:left-60 right-4 h-12 bg-white shadow-md z-10 rounded-lg flex-grow"
       role="navigation"
     >
       <div className="container mx-auto p-1 flex justify-between items-center">
@@ -48,7 +48,7 @@ const Navbar: React.FC<NavbarProps> = () => {
             </svg>
           </div>
         </div>
-        <button className="px-4 py-2 rounded-lg  hover:bg-zinc-100 transition-colors">{currentDate}▼</button>
+        <button className="px-4 py-2 rounded-lg hidden sm:flex hover:bg-zinc-100 transition-colors">{currentDate}▼</button>
         <div className="hidden md:block text-lg font-medium"></div>
         <div className="px-2 hidden md:flex items-center bg-gray-200 rounded-full">
           <button className="bg-slate-800 flex space-x-2bg-gray-200 rounded-full py-2 px-4 text-white hover:bg-slate-900">
@@ -101,5 +101,4 @@ const Navbar: React.FC<NavbarProps> = () => {
   );
 };
 
-export default Navbar;
-
+ export default Navbar;

@@ -10,8 +10,8 @@ const MenuBar = () => {
   };
 
   return (
-    <nav className="bg-gray-100 shadow-md fixed w-56 top-0 left-0 z-10 flex flex-col justify-between h-[100vh] rounded-lg">
-      <div className="p-4">
+    <nav className="bg-white shadow-md fixed w-56 top-0 left-0 z-10 flex flex-col justify-between xl:h-[100vh] rounded-lg sm:h-12  ">
+      <div className="p-2">
         <div className='flex'> 
         <Image src="/qdata-logo.png" width={24} height={24} alt="" />
       <span className="text-xl font-bold ml-2">Q-Datasoft</span>
@@ -163,7 +163,7 @@ const MenuBar = () => {
         </ul>
       </div>
 
-      <div className="justify-center flex flex-row items-center p-4">
+      <div className="justify-center  flex-row items-center p-4 hidden md:block">
         <div className="items-center">
           <div className="w-16 h-16 rounded-full overflow-hidden">
             <Image src="/hero3.png" width={80} height={80} alt="Avatar" />
