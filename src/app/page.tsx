@@ -3,11 +3,13 @@ import Main_Task from "@/app/components/main_task";
 import Navbar from "./components/nav";
 import Productivty from "./components/productivty";
 import ProjectsInProgress from "./components/projects";
+import MenuBar from "./components/menu";
 
 const Home = () => {
   return (
     <main className="mx-auto flex flex-col sm:flex-wrap ">
       <div className="flex flex-col w-full">
+          
         <div className="flex">
           <Navbar />
         </div>

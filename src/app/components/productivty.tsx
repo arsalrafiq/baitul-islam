@@ -78,7 +78,8 @@ const ProductivityChart: React.FC = () => {
   };
 
   return (
-    <div className="p-2 w-[80vh] rounded-full">
+    // <div className="p-2 w-[80vh] rounded-full">
+    <div className="p-2 w-full sm:w-[80vh] rounded-full">
       <div className="bg-white p-2 rounded-lg shadow-md">
         <div className="flex justify-between ">
           <h2 className="text-lg font-semibold">Productivity</h2>

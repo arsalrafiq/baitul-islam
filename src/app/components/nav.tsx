@@ -21,7 +21,7 @@ const Navbar: React.FC<NavbarProps> = () => {
 
   return (
     <nav
-      className="fixed top-0 xl:left-60 lg:left-60 right-4 h-12 bg-white shadow-md z-10 rounded-lg flex-grow"
+      className="fixed top-0 w-full h-12 bg-white shadow-md z-10 rounded-lg flex-grow justify-center"
       role="navigation"
     >
       <div className="container mx-auto p-1 flex justify-between items-center">
@@ -30,7 +30,7 @@ const Navbar: React.FC<NavbarProps> = () => {
             <input
               type="search"
               placeholder="Search"
-              className="bg-gray-200 rounded-full py-2 px-4 w-64"
+              className="bg-gray-200 rounded-full py-2 px-4 w-96"
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"

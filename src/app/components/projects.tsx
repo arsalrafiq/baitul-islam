@@ -64,7 +64,8 @@ const ProjectsInProgress: React.FC = () => {
   const project = projects[currentProject];
 
   return (
-    <div className="w-[90vh] h-[30vh] p-2">
+    // <div className="w-[90vh] h-[30vh] p-2">
+    <div className="w-full sm:w-[90vh] h-[30vh] p-2">
       <div className="relative bg-gray-800 p-4 rounded-lg shadow-lg text-white">
         <h1 className="text-2xl font-semibold mb-4">Projects in progress:</h1>
         <div className="absolute inset-y-0 right-0 flex items-center pr-4">
